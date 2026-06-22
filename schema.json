@@ -165,15 +165,19 @@
                         "type": "string",
                         "title": "DRM/license type",
                         "description": "What DRM/licensing system to use to play the channel.",
-                        "enum": ["xdevel-wms", "clearkey", "widevine"],
+                        "enum": ["xdevel-wms", "rai-akamai", "clearkey"],
                         "meta:enum": {
                             "xdevel-wms": "Xdevel WMS Auth Sign (play.xdevel.com/was)",
-                            "clearkey": "ClearKey (specify keys in licensedetails)",
+                            "rai-akamai": "Rai channels on Akamai servers",
                             "widevine": "Widevine (specify license URL in licensedetails)"
                         },
                         "anyOf": [{
                             "const": "xdevel-wms",
                             "title": "Xdevel WMS Auth Sign (play.xdevel.com/was)"
+                        },
+                        {
+                            "const": "rai-akamai",
+                            "title": "Rai channels on Akamai servers"
                         },
                         {
                             "const": "clearkey",
@@ -280,9 +284,10 @@
                         "type": "string",
                         "title": "Apply CSS fixes",
                         "description": "For channels whose streams require some CSS to look good.",
-                        "enum": ["streamshow-embed", "stretch", "squashed-height", "very-squashed-height", "five-two-squashed-height", "center-iframe", "servizistreaming-embed", "livetvuk-embed", "native-hls-720p-iframe", "letterbox"],
+                        "enum": ["streamshow-embed", "raiplay-sound", "stretch", "squashed-height", "very-squashed-height", "five-two-squashed-height", "center-iframe", "servizistreaming-embed", "livetvuk-embed", "native-hls-720p-iframe", "letterbox", "raiparlamento-embed"],
                         "meta:enum": {
                             "streamshow-embed": "StreamShow embed (embed.streamshow.net)",
+                            "raiplay-sound": "RaiPlay Sound",
                             "stretch": "Stretch the video track of a channel in 4:3 to 16:9.",
                             "squashed-height": "Stretch the video track of a channel with a squashed height to 16:9.",
                             "very-squashed-height": "Stretch the video track of a channel with a VERY squashed height to 16:9.",
@@ -291,11 +296,16 @@
                             "servizistreaming-embed": "ServiziStreaming.it embed",
                             "livetvuk-embed": "LiveTVUK.com embed",
                             "native-hls-720p-iframe": "Scale a 720p video playing natively in an iframe to the video player's width",
-                            "letterbox": "Scale a 16:9 video letterboxed within a 4:3 stream to the video player's width"
+                            "letterbox": "Scale a 16:9 video letterboxed within a 4:3 stream to the video player's width",
+                            "raiparlamento-embed": "Embed di Rai Parlamento"
                         },
                         "anyOf": [{
                             "const": "streamshow-embed",
                             "title": "StreamShow embed (embed.streamshow.net)"
+                        },
+                        {
+                            "const": "raiplay-sound",
+                            "title": "RaiPlay Sound"  
                         },
                         {
                             "const": "stretch",
@@ -336,6 +346,10 @@
                         {
                             "const": "letterbox",
                             "title": "Scale a 16:9 video letterboxed within a 4:3 stream to the video player's width"
+                        },
+                        {
+                            "const": "raiparlamento-embed",
+                            "title": "Embed di Rai Parlamento"
                         }]
                     },
                     "fallback": {
